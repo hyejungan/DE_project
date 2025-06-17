@@ -10,7 +10,8 @@ file_paths = glob.glob(os.path.join(DATA_DIR, '*.xlsx'))
 dfs = [pd.read_excel(file, skiprows=3) for file in file_paths]
 df = pd.concat(dfs, ignore_index=True)
 
-df.to_csv(os.path.join(PROCESSED_DIR, 'final_data.csv'), index=False)
+# 한글 인코딩 깨짐 방지
+df.to_csv(os.path.join(PROCESSED_DIR, 'final_data.csv'), index=False, encoding='utf-8-sig')
 
-# 다음엔 이걸 바로 불러와서 분석/모델링
+# 이후 불러오기
 df = pd.read_csv(os.path.join(PROCESSED_DIR, 'final_data.csv'))
