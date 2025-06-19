@@ -38,7 +38,7 @@ def detect_outliers_iqr(df, col):
     lower = Q1 - 1.5 * IQR
     upper = Q3 + 1.5 * IQR
     outliers = df[(df[col] < lower) | (df[col] > upper)]
-    print(f"[{col}] 이상치 수: {len(outliers)}")
+    # print(f"[{col}] 이상치 수: {len(outliers)}")
     return outliers
 
 all_outliers = []
